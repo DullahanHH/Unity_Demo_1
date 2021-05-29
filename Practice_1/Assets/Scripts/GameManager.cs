@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject gameOverPanel;
     public GameObject pausePanel;
+    public GameObject shopPanel;
 
     private AudioSource backgroundMusic;
 
@@ -34,7 +35,7 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            switchMenu();
+            pauseMenu();
         }
     }
 
@@ -82,7 +83,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    private void switchMenu()
+    private void pauseMenu()
     {
         if (Time.timeScale == 0 && !isGameOver())
         {
