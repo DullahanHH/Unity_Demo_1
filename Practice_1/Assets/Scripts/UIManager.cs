@@ -38,7 +38,6 @@ public class UIManager : MonoBehaviour
         minText.text = FindObjectOfType<GameManager>().getMin();
         secText.text = FindObjectOfType<GameManager>().getSec();
 
-        
     }
 
 }

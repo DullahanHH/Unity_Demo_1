@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject gameOverPanel;
     public GameObject pausePanel;
-    public GameObject shopPanel;
 
     private AudioSource backgroundMusic;
 
@@ -37,9 +36,12 @@ public class GameManager : MonoBehaviour
         {
             pauseMenu();
         }
+
     }
 
-
+    /**
+     * Timmer function
+     */
     private void Counting()
     {
         sec++;

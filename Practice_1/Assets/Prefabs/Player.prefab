@@ -370,11 +370,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d863aef2900f1e04b9ce7396aada54c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 8380010913137492152, guid: e818c9fd6ffb89f4a9f00e7ec338e6b6, type: 3}
+  bulletNormal: {fileID: 8380010913137492152, guid: e818c9fd6ffb89f4a9f00e7ec338e6b6, type: 3}
+  bulletSplit: {fileID: 2930394299148626824, guid: 59aca67065fdd0d44be170ab4c848494, type: 3}
   firePoint: {fileID: 7316583995706825064}
   bulletHolder: {fileID: 4996411511245660976}
   health: 3
   coinTotal: 0
+  weaponType: Split
 --- !u!82 &952671143
 AudioSource:
   m_ObjectHideFlags: 0
