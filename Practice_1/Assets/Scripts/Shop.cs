@@ -7,10 +7,11 @@ public class Shop : MonoBehaviour
 {
     public int splitCannonPrice = 100;
     public int lifePrice = 500;
+    public int skillFlashPrice = 250;
 
     public Text splitPriceText;
-    public GameObject item0_Btn;
     public Text lifePriceText;
+    public Text skillFlashText;
 
     private int coinOwn;
     private int lifeOwn;
@@ -29,6 +30,7 @@ public class Shop : MonoBehaviour
 
         splitPriceText.text = splitCannonPrice.ToString();
         lifePriceText.text = lifePrice.ToString();
+        skillFlashText.text = skillFlashPrice.ToString();
     }
 
     public void SplitCannonPurchase()
@@ -38,8 +40,6 @@ public class Shop : MonoBehaviour
         {
             FindObjectOfType<Player>().coinTotal = coinOwn - splitCannonPrice;
             FindObjectOfType<Player>().weaponType = "Split";
-            item0_Btn.SetActive(false);
-
         } else
         {
             Debug.Log("Not enough coins!");
@@ -49,10 +49,14 @@ public class Shop : MonoBehaviour
     public void LifePurchase()
     {
 
-        if (coinOwn >= lifePrice && lifeOwn != 3)
+        if (coinOwn >= lifePrice && lifeOwn < 3)
         {
             FindObjectOfType<Player>().coinTotal = coinOwn - lifePrice;
             FindObjectOfType<Player>().health++;
+        }
+        else if (lifeOwn >=3)
+        {
+            Debug.Log("Your health is full!");
         }
         else
         {
@@ -60,4 +64,16 @@ public class Shop : MonoBehaviour
         }
     }
 
+    public void SkillFlashPurchase()
+    {
+        if (coinOwn >= skillFlashPrice)
+        {
+            FindObjectOfType<Player>().coinTotal = coinOwn - skillFlashPrice;
+            FindObjectOfType<Player>().isSkillFlashPurchase = true;
+        }
+        else
+        {
+            Debug.Log("Not enough coins!");
+        }
+    }
 }

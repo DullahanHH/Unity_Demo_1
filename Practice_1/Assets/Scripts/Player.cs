@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public int health = 3;
     public int coinTotal = 0;
     public string weaponType = "Normal";
+    public bool isSkillFlashPurchase = false;
 
     private AudioSource shootSound;
     private AudioSource coinPickUpSound;
@@ -31,7 +32,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        SkillFlash();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -91,4 +92,14 @@ public class Player : MonoBehaviour
         copyBullet_2.transform.parent = bulletHolder;
     }
 
+    public void SkillFlash()
+    {
+        float xPos = -gameObject.transform.position.x;
+        float yPos = gameObject.transform.position.y;
+
+        if (Input.GetKeyDown(KeyCode.Space) && isSkillFlashPurchase)
+        {
+            gameObject.transform.position = new Vector3(xPos, yPos, 0);
+        }
+    }
 }
