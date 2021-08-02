@@ -25,7 +25,7 @@ public class Coin : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject, 5);
+            Destroy(gameObject, 10);
         }
     }
 }

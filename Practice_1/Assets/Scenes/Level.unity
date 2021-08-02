@@ -3910,9 +3910,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd1548b3ab7c4e4eba08c64f7f2709f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  splitCannonPrice: 10
-  lifePrice: 10
-  skillFlashPrice: 10
+  splitCannonPrice: 100
+  lifePrice: 500
+  skillFlashPrice: 250
   splitPriceText: {fileID: 359059692}
   lifePriceText: {fileID: 1084138792}
   skillFlashText: {fileID: 609331324}
