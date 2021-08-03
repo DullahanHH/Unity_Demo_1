@@ -1876,7 +1876,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frequency: 3
+  normalEnemyChance: 80
   enemy: {fileID: 6987920287371392169, guid: 9067971c55cc9624db04a94d2bdc71fe, type: 3}
+  enemy_special: {fileID: 6987920287371392169, guid: cd3309ea20cbcaf4eaada584a61780b0, type: 3}
   enemyHolder: {fileID: 602305224}
 --- !u!4 &797651748
 Transform:
@@ -3910,7 +3912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd1548b3ab7c4e4eba08c64f7f2709f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  splitCannonPrice: 100
+  splitCannonPrice: 150
   lifePrice: 500
   skillFlashPrice: 250
   splitPriceText: {fileID: 359059692}

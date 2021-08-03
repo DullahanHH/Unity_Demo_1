@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
-    public int splitCannonPrice = 100;
+    public int splitCannonPrice = 150;
     public int lifePrice = 500;
     public int skillFlashPrice = 250;
 

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int health = 20;     //敌人血量
+    public int health = 8;     //敌人血量
     public float moveSpeed = 1;
+    public int coinDropNum = 1;
     public GameObject explodePrefab;
     public GameObject coinPrefab;
 
@@ -24,7 +25,7 @@ public class Enemy : MonoBehaviour
         {
             deathEffect();
 
-            generateCoin(1);
+            generateCoin(coinDropNum);
         }
     }
 
