@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private int min = 00;
+    private int min = 01;
     private int sec = 00;
 
     public GameObject gameOverPanel;
@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
         pausePanel.SetActive(false);
         backgroundMusic = GetComponent<AudioSource>();
 
-        InvokeRepeating("Counting", 0, 1);
+        InvokeRepeating("Counting", 1, 1);
     }
 
     // Update is called once per frame
@@ -44,18 +44,20 @@ public class GameManager : MonoBehaviour
      */
     private void Counting()
     {
-        sec++;
-
-        if (sec >= 60)
+        if (sec <= 00)
         {
-            sec = 0;
-            min++;
-        }
-        if (min >= 60)
+            if (min <= 00)
+            {
+                CancelInvoke("Counting");
+            } else
+            {
+                min--;
+                sec = 59;
+            }
+        } else
         {
-            CancelInvoke("Counting");
+            sec--;
         }
-
     }
 
     public string getMin()
