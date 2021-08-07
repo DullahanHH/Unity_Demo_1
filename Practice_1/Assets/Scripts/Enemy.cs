@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public int health = 8;     //µÐÈËÑªÁ¿
     public float moveSpeed = 1;
     public int coinDropNum = 1;
+    public bool isStoppable = false;
     public GameObject explodePrefab;
     public GameObject coinPrefab;
 
@@ -16,6 +17,12 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         hitSound = GetComponent<AudioSource>();
+        Invoke("movingDown", 0);
+        if (isStoppable)
+        {
+            float randomTime = Random.Range(1, 5);
+            Invoke("stopMoving", randomTime);
+        }
     }
 
     // Update is called once per frame
@@ -27,11 +34,6 @@ public class Enemy : MonoBehaviour
 
             generateCoin(coinDropNum);
         }
-    }
-
-    void FixedUpdate()
-    {
-        gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.down * moveSpeed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -49,6 +51,16 @@ public class Enemy : MonoBehaviour
         {
             deathEffect();
         }
+    }
+
+    private void movingDown()
+    {
+        gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.down * moveSpeed;
+    }
+
+    private void stopMoving()
+    {
+        gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
     /**

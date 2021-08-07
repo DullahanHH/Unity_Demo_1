@@ -167,6 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 24
   moveSpeed: 0.5
+  moveTime: 20
   coinDropNum: 5
   explodePrefab: {fileID: 2217042001986801428, guid: 7acd0446844e2104a8650ca2ce91c5a5, type: 3}
   coinPrefab: {fileID: 4943747678685640126, guid: c5b97a53e3dcbd146bdb06fe254c12b8, type: 3}

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private int min = 01;
+    private int min = 03;
     private int sec = 00;
 
     public GameObject gameOverPanel;
