@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3340106965152550795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3095549133647889513}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3095549133647889513
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3340106965152550795}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 0, y: -0.211, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6987920287371392164}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1 &6987920287371392169
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,7 +43,7 @@ GameObject:
   - component: {fileID: 6987920287371392166}
   - component: {fileID: 6987920287371392163}
   - component: {fileID: 6987920287371392162}
-  - component: {fileID: 6987920287371392165}
+  - component: {fileID: -4094285830083407718}
   - component: {fileID: -499116801097463419}
   m_Layer: 0
   m_Name: Enemy_Shoot
@@ -32,7 +62,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.12, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 3095549133647889513}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -153,7 +184,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6987920287371392165
+--- !u!114 &-4094285830083407718
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,15 +193,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 6987920287371392169}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1adbb30ed9035bb469c72cfcbf5bf5de, type: 3}
+  m_Script: {fileID: 11500000, guid: 5cc6c06eab96bba4dbcfc4be3a057260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 8
+  health: 16
   moveSpeed: 1
-  coinDropNum: 1
-  isStoppable: 1
+  coinDropNum: 5
   explodePrefab: {fileID: 2217042001986801428, guid: 7acd0446844e2104a8650ca2ce91c5a5, type: 3}
   coinPrefab: {fileID: 4943747678685640126, guid: c5b97a53e3dcbd146bdb06fe254c12b8, type: 3}
+  hitSound: {fileID: -499116801097463419}
+  isShootable: 1
+  bullet: {fileID: 8941923090274121266, guid: 77528aa4ed94ccb4da03cfbe2b3c441f, type: 3}
+  firePoint: {fileID: 3095549133647889513}
+  bulletHolder: {fileID: 0}
 --- !u!82 &-499116801097463419
 AudioSource:
   m_ObjectHideFlags: 0

@@ -7,22 +7,14 @@ public class Enemy : MonoBehaviour
     public int health = 8;     //敌人血量
     public float moveSpeed = 1;
     public int coinDropNum = 1;
-    public bool isStoppable = false;
     public GameObject explodePrefab;
     public GameObject coinPrefab;
-
-    private AudioSource hitSound;
+    public AudioSource hitSound;
 
     // Start is called before the first frame update
     void Start()
     {
-        hitSound = GetComponent<AudioSource>();
         Invoke("movingDown", 0);
-        if (isStoppable)
-        {
-            float randomTime = Random.Range(1, 5);
-            Invoke("stopMoving", randomTime);
-        }
     }
 
     // Update is called once per frame
@@ -58,16 +50,11 @@ public class Enemy : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.down * moveSpeed;
     }
 
-    private void stopMoving()
-    {
-        gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-    }
-
     /**
      * 生成 number 枚金币，向随机方向
      * 以随机力度（10~20）发射.
      */
-    private void generateCoin(int number)
+    public void generateCoin(int number)
     {
         for (int i = 0; i < number; i++)
         {
@@ -82,7 +69,7 @@ public class Enemy : MonoBehaviour
     /**
      * 生成爆炸特效并摧毁本体
      */
-    private void deathEffect()
+    public void deathEffect()
     {
         GameObject explodeCopy = Instantiate(explodePrefab, transform.position, transform.rotation);    //生成爆炸特效（Prefab）
         Destroy(explodeCopy, 0.333f);       //特效结束时间后删除特效
