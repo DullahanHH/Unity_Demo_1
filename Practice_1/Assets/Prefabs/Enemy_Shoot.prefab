@@ -205,7 +205,6 @@ MonoBehaviour:
   isShootable: 1
   bullet: {fileID: 8941923090274121266, guid: 77528aa4ed94ccb4da03cfbe2b3c441f, type: 3}
   firePoint: {fileID: 3095549133647889513}
-  bulletHolder: {fileID: 0}
 --- !u!82 &-499116801097463419
 AudioSource:
   m_ObjectHideFlags: 0
