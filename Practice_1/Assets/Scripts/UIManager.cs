@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
 
     public Text minText;
     public Text secText;
+    public Text ColdDownText;
 
     public void Start()
     {
@@ -38,6 +39,19 @@ public class UIManager : MonoBehaviour
         minText.text = FindObjectOfType<GameManager>().getMin();
         secText.text = FindObjectOfType<GameManager>().getSec();
 
+        ColdDownText.text = FindObjectOfType<Player>().getColdDownCounting();
+
+        ColorChange();
     }
 
+    private void ColorChange()
+    {
+        if (!ColdDownText.text.Equals("00"))
+        {
+            ColdDownText.color = Color.red;
+        } else
+        {
+            ColdDownText.color = Color.white;
+        }
+    }
 }

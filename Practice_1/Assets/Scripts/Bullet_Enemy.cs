@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Bullet_Enemy : Bullet
 {
+    public int health = 2;     //敌人血量
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,14 +15,17 @@ public class Bullet_Enemy : Bullet
     // Update is called once per frame
     void Update()
     {
-        
+        if (health <= 0)       //血量小于0，销毁本体
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag.Equals("Bullet"))     //when touch bullet, destroy
         {
-            Destroy(gameObject);
+            health--;
         }
         if (collision.tag.Equals("Player"))     //when touch player, explode
         {

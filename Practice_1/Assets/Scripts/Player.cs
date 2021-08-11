@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public int coinTotal = 0;
     public string weaponType = "Normal";
     public bool isSkillFlashPurchase = false;
+    public int skillColdDown = 10;
 
     private AudioSource shootSound;
     private AudioSource coinPickUpSound;
@@ -27,6 +28,8 @@ public class Player : MonoBehaviour
 
         GameObject coinSound = GameObject.Find("Player/Sound_PickUpCoin");
         coinPickUpSound = coinSound.GetComponent<AudioSource>();
+
+        InvokeRepeating("ColdDownCounting", 0, 1);
     }
 
     // Update is called once per frame
@@ -38,6 +41,11 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag.Equals("Enemy"))      //当敌人tag与机体碰撞，掉1点血
+        {
+            takeDamage();
+        }
+
+        if (collision.tag.Equals("Enemy Bullet"))
         {
             takeDamage();
         }
@@ -97,9 +105,27 @@ public class Player : MonoBehaviour
         float xPos = -gameObject.transform.position.x;
         float yPos = gameObject.transform.position.y;
 
-        if (Input.GetKeyDown(KeyCode.Space) && isSkillFlashPurchase)
+        if (Input.GetKeyDown(KeyCode.Space) && isSkillFlashPurchase && skillColdDown == 0)
         {
             gameObject.transform.position = new Vector3(xPos, yPos, 0);
+            skillColdDown = 10;
+            InvokeRepeating("ColdDownCounting", 0, 1);
+        }
+    }
+
+    public string getColdDownCounting()
+    {
+        return string.Format("{0:D2}", skillColdDown);
+    }
+
+    private void ColdDownCounting()
+    {
+        if (skillColdDown != 0)
+        {
+            skillColdDown--;
+        } else
+        {
+            CancelInvoke("ColdDownCounting");
         }
     }
 }

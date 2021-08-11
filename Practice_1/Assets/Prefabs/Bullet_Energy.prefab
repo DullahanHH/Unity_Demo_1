@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -6349146568206679919}
   m_Layer: 0
   m_Name: Bullet_Energy
-  m_TagString: Enemy
+  m_TagString: Enemy Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,3 +134,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccdfab2c047993d4cbfe3071714d9a95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 2

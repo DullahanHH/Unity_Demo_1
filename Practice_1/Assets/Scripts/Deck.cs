@@ -22,5 +22,10 @@ public class Deck : MonoBehaviour
         {
             FindObjectOfType<Player>().takeDamage();
         }
+
+        if (collision.tag.Equals("Enemy Bullet"))
+        {
+            FindObjectOfType<Player>().takeDamage();
+        }
     }
 }

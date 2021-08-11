@@ -5,14 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private int min = 03;
+    private int min = 01;
     private int sec = 00;
 
     public GameObject gameOverPanel;
     public GameObject pausePanel;
 
     private AudioSource backgroundMusic;
-
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +21,8 @@ public class GameManager : MonoBehaviour
         backgroundMusic = GetComponent<AudioSource>();
 
         InvokeRepeating("Counting", 1, 1);
+
+        GetComponent<BoxCollider2D>().enabled = false;      //disable the trigger when start
     }
 
     // Update is called once per frame
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
             if (min <= 00)
             {
                 CancelInvoke("Counting");
+                BossEvent();
             } else
             {
                 min--;
@@ -57,6 +59,26 @@ public class GameManager : MonoBehaviour
         } else
         {
             sec--;
+        }
+    }
+
+    /**
+     * Destroy all the enemy, start boss event
+     */
+    private void BossEvent()
+    {
+        FindObjectOfType<EnemyGenerator>().CancelInvoke("Generator");       //stop generating enemies
+        GetComponent<BoxCollider2D>().enabled = true;       //set trigger active to clean the screen
+    }
+
+    /**
+     * Kill every enemy in the trigger
+     */
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Enemy"))
+        {
+            collision.gameObject.GetComponent<Enemy>().health = 0;
         }
     }
 
@@ -69,6 +91,7 @@ public class GameManager : MonoBehaviour
     {
         return string.Format("{0:D2}", sec);
     }
+
 
     public bool isGameOver()
     {
